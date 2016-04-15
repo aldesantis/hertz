@@ -11,9 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160415175837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
+
+  create_table "hertz_notifications", force: :cascade do |t|
+    t.string   "type",                       null: false
+    t.string   "receiver_type",              null: false
+    t.integer  "receiver_id",                null: false
+    t.hstore   "meta",          default: {}, null: false
+    t.datetime "read_at"
+    t.datetime "created_at",                 null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
