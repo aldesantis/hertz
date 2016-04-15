@@ -5,7 +5,7 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: pg
+  adapter: postgresql
   host: localhost
   username: postgres
   password: postgres
