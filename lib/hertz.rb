@@ -1,4 +1,4 @@
-require "hertz/engine"
+require 'hertz/engine'
 
 module Hertz
 end
