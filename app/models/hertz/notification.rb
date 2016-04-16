@@ -1,5 +1,7 @@
 module Hertz
   class Notification < ActiveRecord::Base
+    scope :unread, -> { where 'read_at IS NULL' }
+
     belongs_to :receiver, inverse_of: :notifications, polymorphic: true
 
     serialize :meta

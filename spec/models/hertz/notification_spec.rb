@@ -39,5 +39,14 @@ module Hertz
         }.to change(subject, :read_at).to(nil)
       end
     end
+
+    describe '.unread' do
+      let!(:unread_notification) { create(:notification) }
+      let!(:read_notification) { create(:notification, :read) }
+
+      it 'returns the unread notifications' do
+        expect(Notification.unread).to eq([unread_notification])
+      end
+    end
   end
 end
