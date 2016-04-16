@@ -48,5 +48,13 @@ module Hertz
         expect(Notification.unread).to eq([unread_notification])
       end
     end
+
+    it 'delivers itself upon creation' do
+      expect(Hertz::NotificationDeliverer).to receive(:deliver)
+        .with(subject)
+        .once
+
+      subject.save!
+    end
   end
 end

@@ -6,6 +6,12 @@ module Hertz
 
     serialize :meta
 
+    after_create :deliver
+
+    def couriers
+      @@couriers ||= []
+    end
+
     def read?
       read_at.present?
     end
@@ -20,6 +26,18 @@ module Hertz
 
     def mark_as_unread
       update read_at: nil
+    end
+
+    protected
+
+    def self.deliver_by(*couriers)
+      @@couriers = couriers.flatten.map(&:to_sym)
+    end
+
+    private
+
+    def deliver
+      Hertz::NotificationDeliverer.deliver(self)
     end
   end
 end
