@@ -3,7 +3,7 @@ module Hertz
   class NotificationDeliverer
     class << self
       def deliver(notification)
-        notification.couriers.each do |courier|
+        notification.class.couriers.each do |courier|
           build_courier(courier).deliver_notification(notification)
         end
       end

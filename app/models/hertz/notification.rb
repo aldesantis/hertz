@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 module Hertz
   class Notification < ActiveRecord::Base
+    @couriers = []
+
     scope :unread, -> { where 'read_at IS NULL' }
 
     belongs_to :receiver, inverse_of: :notifications, polymorphic: true
@@ -10,15 +12,13 @@ module Hertz
     after_create :deliver
 
     class << self
+      attr_reader :couriers
+
       protected
 
       def deliver_by(*couriers)
-        @@couriers = couriers.flatten.map(&:to_sym)
+        @couriers = couriers.flatten.map(&:to_sym)
       end
-    end
-
-    def couriers
-      @@couriers ||= []
     end
 
     def read?
