@@ -68,6 +68,15 @@ Notifications are not required to implement any couriers.
 You can use `#notify` for notifying a user:
 
 ```ruby
+notification = CommentNotification.new
+user.notify(notification)
+```
+
+You can attach custom meta to a notification, but make sure it can be cleanly
+stored in an hstore:
+
+```ruby
+notification = CommentNotification.new(meta: { comment_id: comment.id })
 user.notify(notification)
 ```
 
@@ -106,7 +115,7 @@ end
 ```
 
 Again, you don't have to use couriers if you only display notifications on your
-website using standard AR models.
+website using standard AR methods.
 
 ## Contributing
 
