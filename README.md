@@ -42,6 +42,29 @@ end
 
 ## Usage
 
+### Using couriers
+
+Couriers are what Hertz uses to deliver notifications to your users. For
+instance, you might have a courier for delivering notifications by SMS and
+another one for delivering them by email.
+
+Creating a new courier in Hertz is easy:
+
+```ruby
+module Hertz
+  module Courier
+    class Sms
+      def self.deliver_notification(notification)
+        # ...
+      end
+    end
+  end
+end
+```
+
+Again, you don't have to use couriers if you only display notifications on your
+website using standard AR methods.
+
 ### Creating new notification types
 
 In Hertz, every notification is a model. If you want to create a new
@@ -93,29 +116,6 @@ You can also mark notifications as read/unread:
 notification.mark_as_read
 notification.mark_as_unread
 ```
-
-### Using couriers
-
-Couriers are what Hertz uses to deliver notifications to your users. For
-instance, you might have a courier for delivering notifications by SMS and
-another one for delivering them by email.
-
-Creating a new courier in Hertz is easy:
-
-```ruby
-module Hertz
-  module Courier
-    class Sms
-      def self.deliver_notification(notification)
-        # ...
-      end
-    end
-  end
-end
-```
-
-Again, you don't have to use couriers if you only display notifications on your
-website using standard AR methods.
 
 ## Contributing
 
