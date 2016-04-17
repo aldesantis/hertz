@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Hertz
   RSpec.describe Notifiable do
     let(:user) { create(:user) }

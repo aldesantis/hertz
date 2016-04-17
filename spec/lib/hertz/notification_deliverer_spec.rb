@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Hertz
   RSpec.describe NotificationDeliverer do
     subject { described_class }
@@ -5,7 +6,7 @@ module Hertz
     before(:each) do
       module Courier
         class Test < Base
-          def self.deliver_notification(notification)
+          def self.deliver_notification(_notification)
           end
         end
       end

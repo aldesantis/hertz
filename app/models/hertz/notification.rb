@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Hertz
   class Notification < ActiveRecord::Base
     scope :unread, -> { where 'read_at IS NULL' }
@@ -7,6 +8,14 @@ module Hertz
     serialize :meta
 
     after_create :deliver
+
+    class << self
+      protected
+
+      def deliver_by(*couriers)
+        @@couriers = couriers.flatten.map(&:to_sym)
+      end
+    end
 
     def couriers
       @@couriers ||= []
@@ -26,12 +35,6 @@ module Hertz
 
     def mark_as_unread
       update read_at: nil
-    end
-
-    protected
-
-    def self.deliver_by(*couriers)
-      @@couriers = couriers.flatten.map(&:to_sym)
     end
 
     private

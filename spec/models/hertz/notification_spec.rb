@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Hertz
   RSpec.describe Notification do
     subject { build(:notification) }
@@ -45,7 +46,7 @@ module Hertz
       let!(:read_notification) { create(:notification, :read) }
 
       it 'returns the unread notifications' do
-        expect(Notification.unread).to eq([unread_notification])
+        expect(described_class.unread).to eq([unread_notification])
       end
     end
 

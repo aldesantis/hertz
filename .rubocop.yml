@@ -1,0 +1,67 @@
+require: rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.3
+  Include:
+    - '**/Gemfile'
+    - '**/Rakefile'
+  Exclude:
+   - 'bin/*'
+   - 'db/**/*'
+   - 'vendor/bundle/**/*'
+   - 'spec/spec_helper.rb'
+   - 'spec/rails_helper.rb'
+   - 'spec/support/**/*'
+   - 'spec/dummy/**/*'
+   - 'config/**/*'
+   - 'Rakefile'
+   - 'Gemfile'
+
+Style/Documentation:
+  Enabled: false
+
+RSpec/DescribeClass:
+  Exclude:
+    - 'spec/requests/*'
+
+Style/BlockDelimiters:
+  Exclude:
+    - 'spec/**/*'
+
+Style/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Style/ClosingParenthesisIndentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 80
+  AllowURI: true
+
+Style/FirstParameterIndentation:
+  Enabled: false
+
+Style/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Style/IndentArray:
+  EnforcedStyle: consistent
+
+Style/IndentHash:
+  EnforcedStyle: consistent
+
+Style/SignalException:
+  EnforcedStyle: semantic
+
+Style/BracesAroundHashParameters:
+  EnforcedStyle: context_dependent
+
+Lint/EndAlignment:
+  AlignWith: variable
+  AutoCorrect: true
+
+Style/AndOr:
+  EnforcedStyle: conditionals
+
+Metrics/MethodLength:
+  Max: 15
