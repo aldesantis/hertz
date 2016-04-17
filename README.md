@@ -1,5 +1,8 @@
 # Hertz
 
+[![Dependency Status](https://gemnasium.com/badges/github.com/alessandro1997/hertz.svg)](https://gemnasium.com/github.com/alessandro1997/hertz)
+[![Code Climate](https://codeclimate.com/github/alessandro1997/hertz/badges/gpa.svg)](https://codeclimate.com/github/alessandro1997/hertz)
+
 Hertz is a Ruby on Rails engine for sending in-app notification to your users.
 
 ## Installation
