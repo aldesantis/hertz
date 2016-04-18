@@ -5,7 +5,6 @@ require 'hertz/notifiable'
 require 'hertz/notification_deliverer'
 require 'hertz/courier/base'
 require 'hertz/courier/email'
-require 'hertz/generators/install_generator' if defined?(Rails::Generators)
 
 module Hertz
   mattr_writer :base_mailer
