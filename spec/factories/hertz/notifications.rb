@@ -7,5 +7,8 @@ FactoryGirl.define do
     trait :read do
       read_at { Time.zone.now }
     end
+
+    factory :test_notification, class: 'TestNotification' do
+    end
   end
 end
