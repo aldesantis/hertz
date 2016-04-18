@@ -86,17 +86,10 @@ end
 
 Notifications are not required to implement any couriers.
 
-### Notifying users
+### Attaching metadata to a notification
 
-You can use `#notify` for notifying a user:
-
-```ruby
-notification = CommentNotification.new
-user.notify(notification)
-```
-
-You can attach custom meta to a notification, but make sure it can be cleanly
-stored in an hstore:
+You can attach custom metadata to a notification, but make sure it can be
+cleanly stored in an hstore:
 
 ```ruby
 notification = CommentNotification.new(meta: { comment_id: comment.id })
@@ -111,6 +104,15 @@ class CommentNotification < Hertz::Notification
     Comment.find(meta[:comment_id])
   end
 end
+```
+
+### Notifying users
+
+You can use `#notify` for notifying a user:
+
+```ruby
+notification = CommentNotification.new
+user.notify(notification)
 ```
 
 You can access a user's notifications with `#notifications`:
