@@ -142,7 +142,7 @@ class CommentNotification < Hertz::Notification
 end
 ```
 
-You will also need to expose the `hertz_email` method on your receiver class:
+You will also need to expose the `hertz_email` method in your receiver class:
 
 ```ruby
 class User < ActiveRecord::Base
@@ -157,7 +157,7 @@ For `CommentNotification` you'd create a template at
 `app/views/hertz/notification_mailer/comment_email.html.erb`:
 
 ```erb
-<p>Hey <%= @notification.receiver.email %>,</p>
+<p>Hey <%= @notification.receiver.hertz_email %>,</p>
 <p>you've got a new comment!</p>
 ```
 
