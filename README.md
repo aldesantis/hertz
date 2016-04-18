@@ -102,10 +102,13 @@ You can then unserialize any data in the model:
 ```ruby
 class CommentNotification < Hertz::Notification
   def comment
-    Comment.find(meta[:comment_id])
+    Comment.find(meta['comment_id'])
   end
 end
 ```
+
+Note that you should always access your metadata with string keys, regardless of
+the type you use when attaching it.
 
 ### Notifying users
 
