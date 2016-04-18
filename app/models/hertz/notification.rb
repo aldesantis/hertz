@@ -7,8 +7,6 @@ module Hertz
 
     belongs_to :receiver, inverse_of: :notifications, polymorphic: true
 
-    serialize :meta
-
     after_create :deliver
 
     class << self
