@@ -25,10 +25,11 @@ Or install it yourself as:
 $ gem install hertz
 ```
 
-Then, install and run the migrations:
+Then, run the installer generator:
 
 ```console
-$ rake hertz:install:migrations db:migrate
+$ rails g hertz:install
+$ rake db:migrate
 ```
 
 Finally, add the following to the model that will receive the notifications
