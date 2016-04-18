@@ -12,7 +12,9 @@ module Hertz
     after_create :deliver
 
     class << self
-      attr_reader :couriers
+      def couriers
+        @couriers ||= []
+      end
 
       protected
 
