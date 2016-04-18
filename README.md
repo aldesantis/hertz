@@ -153,9 +153,19 @@ class User < ActiveRecord::Base
 end
 ```
 
+And the `email_subject` method in your notification class:
+
+```ruby
+class CommentNotification < Hertz::Notification
+  def email_subject
+    'You have a new comment!'
+  end
+end
+```
+
 Finally, you should create a template for every notification you send by email.
 For `CommentNotification` you'd create a template at
-`app/views/hertz/notification_mailer/comment_email.html.erb`:
+`app/views/hertz/notification_mailer/comment_notification.html.erb`:
 
 ```erb
 <p>Hey <%= @notification.receiver.hertz_email %>,</p>
