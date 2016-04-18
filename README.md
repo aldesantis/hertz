@@ -103,6 +103,16 @@ notification = CommentNotification.new(meta: { comment_id: comment.id })
 user.notify(notification)
 ```
 
+You can then unserialize any data in the model:
+
+```ruby
+class CommentNotification < Hertz::Notification
+  def comment
+    Comment.find(meta[:comment_id])
+  end
+end
+```
+
 You can access a user's notifications with `#notifications`:
 
 ```ruby
