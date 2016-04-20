@@ -1,5 +1,6 @@
 # Hertz
 
+[![Gem Version](https://badge.fury.io/rb/hertz.svg)](https://badge.fury.io/rb/hertz)
 [![Dependency Status](https://gemnasium.com/badges/github.com/alessandro1997/hertz.svg)](https://gemnasium.com/github.com/alessandro1997/hertz)
 [![Code Climate](https://codeclimate.com/github/alessandro1997/hertz/badges/gpa.svg)](https://codeclimate.com/github/alessandro1997/hertz)
 
