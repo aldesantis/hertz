@@ -178,6 +178,11 @@ For `CommentNotification` you'd create a template at
 
 As you can see, templates have access to the `@notification` instance variable.
 
+## Other couriers
+
+- [hertz-courier-twilio](https://github.com/alessandro1997/hertz-courier-twilio):
+  delivers notifications by SMS with the Twilio API.
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at
