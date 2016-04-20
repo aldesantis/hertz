@@ -5,7 +5,7 @@ module Hertz
 
     before(:each) do
       module Courier
-        class Test < Base
+        module Test
           def self.deliver_notification(_notification)
           end
         end
