@@ -187,3 +187,10 @@ https://github.com/alessandro1997/hertz.
 
 The gem is available as open source under the terms of the
 [MIT License](http://opensource.org/licenses/MIT).
+
+## To do
+
+- [ ] Test `Hertz.configure`
+- [ ] Allow setting common couriers for all notifications
+- [ ] Validate couriers when calling `Hertz::Notifiable.deliver_by`
+- [ ] Extract `Hertz::Courier::Email` into a separate gem
