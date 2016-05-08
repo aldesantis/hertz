@@ -134,54 +134,12 @@ notification.mark_as_read
 notification.mark_as_unread
 ```
 
-## Built-in couriers
-
-### Email
-
-The email courier delivers your notifications by email. In order to use this
-courier, add `:email` to `deliver_by` in the notification model(s):
-
-```ruby
-class CommentNotification < Hertz::Notification
-  deliver_by :email
-end
-```
-
-You will also need to expose the `hertz_email` method in your receiver class:
-
-```ruby
-class User < ActiveRecord::Base
-  def hertz_email
-    email
-  end
-end
-```
-
-And the `email_subject` method in your notification class:
-
-```ruby
-class CommentNotification < Hertz::Notification
-  def email_subject
-    'You have a new comment!'
-  end
-end
-```
-
-Finally, you should create a template for every notification you send by email.
-For `CommentNotification` you'd create a template at
-`app/views/hertz/notification_mailer/comment_notification.html.erb`:
-
-```erb
-<p>Hey <%= @notification.receiver.hertz_email %>,</p>
-<p>you've got a new comment!</p>
-```
-
-As you can see, templates have access to the `@notification` instance variable.
-
 ## Other couriers
 
 - [hertz-courier-twilio](https://github.com/alessandro1997/hertz-courier-twilio):
   delivers notifications by SMS with the Twilio API.
+- [hertz-courier-email](https://github.com/alessandro1997/hertz-courier-email):
+  delivers notifications by email with ActionMailer.
 
 ## Contributing
 
