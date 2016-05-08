@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    hertz (0.1.0)
+    hertz (1.0.0)
       rails (~> 4.2.6)
 
 GEM
@@ -165,4 +165,4 @@ DEPENDENCIES
   rubocop-rspec
 
 BUNDLED WITH
-   1.11.2
+   1.12.3
