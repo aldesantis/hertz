@@ -10,7 +10,9 @@ module Hertz
           dependent: :destroy
 
         def notify(notification)
+          notification.receiver = self
           notification.save!
+
           notifications << notification
         end
       RUBY
