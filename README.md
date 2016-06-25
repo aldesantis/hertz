@@ -88,6 +88,15 @@ end
 
 Notifications are not required to implement any couriers.
 
+You can set common couriers (i.e. couriers that will be used for all
+notifications) by putting the following into an initializer:
+
+```ruby
+Hertz.configure do |config|
+  config.common_couriers = [:sms, :email]
+end
+```
+
 ### Attaching metadata to a notification
 
 You can attach custom metadata to a notification, but make sure it can be
@@ -152,7 +161,3 @@ https://github.com/alessandro1997/hertz.
 
 The gem is available as open source under the terms of the
 [MIT License](http://opensource.org/licenses/MIT).
-
-## To do
-
-- [ ] Document common couriers
