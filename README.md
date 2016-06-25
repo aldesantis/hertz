@@ -140,6 +140,8 @@ notification.mark_as_unread
   delivers notifications by SMS with the Twilio API.
 - [hertz-courier-email](https://github.com/alessandro1997/hertz-courier-email):
   delivers notifications by email with ActionMailer.
+- [hertz-courier-intercom](https://github.com/alessandro1997/hertz-courier-intercom):
+  delivers notifications as Intercom conversations.
 
 ## Contributing
 
@@ -156,4 +158,3 @@ The gem is available as open source under the terms of the
 - [ ] Test `Hertz.configure`
 - [ ] Allow setting common couriers for all notifications
 - [ ] Validate couriers when calling `Hertz::Notifiable.deliver_by`
-- [ ] Extract `Hertz::Courier::Email` into a separate gem
