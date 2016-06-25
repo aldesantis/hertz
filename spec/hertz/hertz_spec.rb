@@ -3,10 +3,10 @@ RSpec.describe Hertz do
   describe '.configure' do
     it 'configures the module' do
       expect {
-        Hertz.configure do |config|
+        described_class.configure do |config|
           config.common_couriers = [:test]
         end
-      }.to change(Hertz, :common_couriers).to([:test])
+      }.to change(described_class, :common_couriers).to([:test])
     end
   end
 end
