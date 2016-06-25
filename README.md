@@ -155,6 +155,4 @@ The gem is available as open source under the terms of the
 
 ## To do
 
-- [ ] Test `Hertz.configure`
-- [ ] Allow setting common couriers for all notifications
-- [ ] Validate couriers when calling `Hertz::Notifiable.deliver_by`
+- [ ] Document common couriers
