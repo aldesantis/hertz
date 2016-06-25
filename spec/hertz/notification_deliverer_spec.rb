@@ -5,9 +5,9 @@ module Hertz
 
     let(:test_courier) do
       Class.new do
-        def deliver_notification(notification)
+        def self.deliver_notification(_notification)
         end
-      end.new
+      end
     end
 
     before(:each) do
@@ -29,6 +29,43 @@ module Hertz
           .with(notification)
 
         subject.deliver(notification)
+      end
+
+      context 'when common couriers are defined' do
+        let(:common_courier) do
+          Class.new do
+            def self.deliver_notification(_notification)
+            end
+          end
+        end
+
+        before(:each) do
+          allow(Hertz).to receive(:common_couriers)
+            .and_return([:common])
+
+          allow(Hertz).to receive(:build_courier)
+            .with(:common)
+            .and_return(common_courier)
+
+          allow(test_courier).to receive(:deliver_notification)
+          allow(common_courier).to receive(:deliver_notification)
+        end
+
+        it 'uses common couriers' do
+          expect(test_courier).to receive(:deliver_notification)
+            .once
+            .with(notification)
+
+          subject.deliver(notification)
+        end
+
+        it 'uses model-specific couriers' do
+          expect(common_courier).to receive(:deliver_notification)
+            .once
+            .with(notification)
+
+          subject.deliver(notification)
+        end
       end
     end
   end
