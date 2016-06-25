@@ -134,7 +134,7 @@ notification.mark_as_read
 notification.mark_as_unread
 ```
 
-## Other couriers
+## Available couriers
 
 - [hertz-courier-twilio](https://github.com/alessandro1997/hertz-courier-twilio):
   delivers notifications by SMS with the Twilio API.
