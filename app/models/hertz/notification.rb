@@ -7,7 +7,7 @@ module Hertz
 
     belongs_to :receiver, inverse_of: :notifications, polymorphic: true
 
-    after_create :deliver
+    after_commit :deliver
 
     class << self
       def couriers
