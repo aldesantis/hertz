@@ -143,6 +143,8 @@ GEM
     rubocop-rspec (1.4.1)
       rubocop (= 0.39.0)
     ruby-progressbar (1.7.5)
+    shoulda-matchers (3.1.1)
+      activesupport (>= 4.0.0)
     slop (3.6.0)
     sprockets (3.6.0)
       concurrent-ruby (~> 1.0)
@@ -171,6 +173,7 @@ DEPENDENCIES
   rspec-rails
   rubocop
   rubocop-rspec
+  shoulda-matchers
 
 BUNDLED WITH
    1.12.5

@@ -6,6 +6,7 @@ module Hertz
     scope :unread, -> { where 'read_at IS NULL' }
 
     belongs_to :receiver, inverse_of: :notifications, polymorphic: true
+    has_many :deliveries, inverse_of: :notification
 
     after_commit :deliver
 
@@ -35,6 +36,14 @@ module Hertz
 
     def mark_as_unread
       update read_at: nil
+    end
+
+    def delivered_with?(courier)
+      deliveries.where(courier: courier).exists?
+    end
+
+    def mark_delivered_with(courier)
+      deliveries.create(courier: courier)
     end
 
     private

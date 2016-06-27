@@ -12,9 +12,6 @@ require 'rspec/rails'
 # Load RSpec helpers.
 Dir[File.join(ENGINE_ROOT, 'spec/support/**/*.rb')].each { |f| require f }
 
-# Load testing libraries.
-require 'faker'
-
 # Load migrations from the dummy app.
 ActiveRecord::Migrator.migrations_paths = File.join(ENGINE_ROOT, 'spec/dummy/db/migrate')
 ActiveRecord::Migration.maintain_test_schema!

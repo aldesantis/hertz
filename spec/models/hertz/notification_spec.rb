@@ -41,6 +41,26 @@ module Hertz
       end
     end
 
+    describe '#delivered_with?' do
+      subject { create(:notification) }
+
+      it 'returns whether it has been delivered with that courier' do
+        expect {
+          create(:delivery, notification: subject, courier: :test)
+        }.to change { subject.delivered_with?(:test) }.from(false).to(true)
+      end
+    end
+
+    describe '#mark_delivered_with' do
+      subject { create(:notification) }
+
+      it 'creates a delivery for that courier' do
+        expect {
+          subject.mark_delivered_with(:test)
+        }.to change(subject.deliveries, :count).by(1)
+      end
+    end
+
     describe '.unread' do
       let!(:unread_notification) { create(:notification) }
       let!(:read_notification) { create(:notification, :read) }

@@ -11,11 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160508094342) do
+ActiveRecord::Schema.define(version: 20160628084413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
+
+  create_table "hertz_deliveries", force: :cascade do |t|
+    t.integer  "notification_id", null: false
+    t.string   "courier",         null: false
+    t.datetime "created_at",      null: false
+  end
+
+  add_index "hertz_deliveries", ["notification_id", "courier"], name: "index_hertz_notification_deliveries_on_notification_and_courier", unique: true, using: :btree
+  add_index "hertz_deliveries", ["notification_id"], name: "index_hertz_deliveries_on_notification_id", using: :btree
 
   create_table "hertz_notifications", force: :cascade do |t|
     t.string   "type",                       null: false
@@ -31,4 +40,5 @@ ActiveRecord::Schema.define(version: 20160508094342) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "hertz_deliveries", "hertz_notifications", column: "notification_id", on_delete: :cascade
 end
