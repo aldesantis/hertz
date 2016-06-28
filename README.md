@@ -143,6 +143,21 @@ notification.mark_as_read
 notification.mark_as_unread
 ```
 
+### Tracking delivery status
+
+Hertz provides an API couriers can use to mark the notification as delivered.
+This allows you to know which couriers have successfully delivered your
+notifications and helps prevent double deliveries:
+
+```ruby
+notification.delivered_with?(:email) # => false
+notification.mark_delivered_with(:email) # => Hertz::Delivery
+notification.delivered_with?(:email) # => true
+```
+
+Hertz does not enforce usage of the delivery API in any way, so some couriers
+might not take advantage of it.
+
 ## Available couriers
 
 - [hertz-courier-twilio](https://github.com/alessandro1997/hertz-courier-twilio):
