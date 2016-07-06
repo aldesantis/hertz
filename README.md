@@ -1,8 +1,8 @@
 # Hertz
 
-[![Gem Version](https://badge.fury.io/rb/hertz.svg)](https://badge.fury.io/rb/hertz)
-[![Dependency Status](https://gemnasium.com/badges/github.com/alessandro1997/hertz.svg)](https://gemnasium.com/github.com/alessandro1997/hertz)
-[![Code Climate](https://codeclimate.com/github/alessandro1997/hertz/badges/gpa.svg)](https://codeclimate.com/github/alessandro1997/hertz)
+[![Gem Version](https://img.shields.io/gemnasium/alessandro1997/hertz.svg?maxAge=2592000&style=flat-square)](https://rubygems.org/gems/hertz)
+[![Dependency Status](https://img.shields.io/gemnasium/alessandro1997/hertz.svg?maxAge=2592000&style=flat-square)](https://gemnasium.com/github.com/alessandro1997/hertz)
+[![Code Climate](https://img.shields.io/codeclimate/github/alessandro1997/hertz.svg?maxAge=2592000&style=flat-square)](https://codeclimate.com/github/alessandro1997/hertz)
 
 Hertz is a Ruby on Rails engine for sending in-app notifications to your users.
 
