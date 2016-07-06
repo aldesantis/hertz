@@ -12,10 +12,29 @@ module Hertz
     end
 
     describe '#notify' do
-      it 'notifies the receiver' do
-        expect {
-          user.notify(Hertz::Notification.new(type: 'Hertz::Notification'))
-        }.to change(user.notifications, :count).by(1)
+      before(:all) do
+        class TestNotification < Hertz::Notification; end
+      end
+
+      context 'with a notification object' do
+        subject { -> { user.notify(TestNotification.new) } }
+
+        it 'notifies the receiver' do
+          expect(subject).to change(user.notifications, :count).by(1)
+        end
+      end
+
+      context 'with a notification class' do
+        subject { -> { user.notify(TestNotification, foo: 'bar') } }
+
+        it 'notifies the receiver' do
+          expect(subject).to change(user.notifications, :count).by(1)
+        end
+
+        it 'sets the provided meta' do
+          subject.call
+          expect(user.notifications.last.meta).to eq('foo' => 'bar')
+        end
       end
     end
   end

@@ -125,8 +125,9 @@ the type you use when attaching it.
 You can use `#notify` for notifying a user:
 
 ```ruby
-notification = CommentNotification.new
-user.notify(notification)
+user.notify(CommentNotification.new(meta: { comment_id: comment.id }))
+# or
+user.notify(CommentNotification, comment_id: comment.id)
 ```
 
 You can access a user's notifications with `#notifications`:
