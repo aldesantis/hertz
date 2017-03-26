@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Hertz
   module Notifiable
     def self.included(base)

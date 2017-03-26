@@ -1,13 +1,13 @@
 # frozen_string_literal: true
+
 module Hertz
   RSpec.describe NotificationDeliverer do
     subject { described_class }
 
-    before(:all) do
+    before do
       module Courier
         class Test
-          def self.deliver_notification(_notification)
-          end
+          def self.deliver_notification(_notification); end
         end
       end
     end
@@ -28,19 +28,14 @@ module Hertz
       end
 
       context 'when common couriers are defined' do
-        before(:all) do
+        before do
           module Courier
             class Common
-              def self.deliver_notification(_notification)
-              end
+              def self.deliver_notification(_notification); end
             end
           end
-        end
 
-        before(:each) do
-          allow(Hertz).to receive(:common_couriers)
-            .and_return([:common])
-
+          allow(Hertz).to receive(:common_couriers).and_return([:common])
           allow(Hertz::Courier::Test).to receive(:deliver_notification)
           allow(Hertz::Courier::Common).to receive(:deliver_notification)
         end

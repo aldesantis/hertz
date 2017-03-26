@@ -35,8 +35,11 @@ Style/ClosingParenthesisIndentation:
   Enabled: false
 
 Metrics/LineLength:
-  Max: 80
+  Max: 100
   AllowURI: true
+
+Metrics/BlockLength:
+  Enabled: false
 
 Style/FirstParameterIndentation:
   Enabled: false
@@ -57,7 +60,7 @@ Style/BracesAroundHashParameters:
   EnforcedStyle: context_dependent
 
 Lint/EndAlignment:
-  AlignWith: variable
+  EnforcedStyleAlignWith: variable
   AutoCorrect: true
 
 Style/AndOr:
@@ -65,3 +68,9 @@ Style/AndOr:
 
 Metrics/MethodLength:
   Max: 15
+
+RSpec/NamedSubject:
+  Enabled: false
+
+RSpec/MessageSpies:
+  EnforcedStyle: receive

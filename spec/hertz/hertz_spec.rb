@@ -1,7 +1,8 @@
 # frozen_string_literal: true
+
 RSpec.describe Hertz do
   describe '.configure' do
-    after(:each) { described_class.common_couriers = [] }
+    after { described_class.common_couriers = [] }
 
     it 'configures the module' do
       expect {

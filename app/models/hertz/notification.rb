@@ -1,8 +1,10 @@
 # frozen_string_literal: true
+
 module Hertz
   class Notification < ActiveRecord::Base
     @couriers = []
 
+    scope :read, -> { where 'read_at IS NOT NULL' }
     scope :unread, -> { where 'read_at IS NULL' }
 
     belongs_to :receiver, inverse_of: :notifications, polymorphic: true

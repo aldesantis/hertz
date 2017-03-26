@@ -33,8 +33,7 @@ $ rails g hertz:install
 $ rake db:migrate
 ```
 
-Finally, add the following to the model that will receive the notifications
-(e.g. `User`):
+Finally, add the following to the model that will receive the notifications (e.g. `User`):
 
 ```ruby
 class User < ActiveRecord::Base
@@ -46,9 +45,8 @@ end
 
 ### Using couriers
 
-Couriers are what Hertz uses to deliver notifications to your users. For
-instance, you might have a courier for delivering notifications by SMS and
-another one for delivering them by email.
+Couriers are what Hertz uses to deliver notifications to your users. For instance, you might have a courier for 
+delivering notifications by SMS and another one for delivering them by email.
 
 Creating a new courier in Hertz is easy:
 
@@ -64,21 +62,17 @@ module Hertz
 end
 ```
 
-Again, you don't have to use couriers if you only display notifications on your
-website using standard AR methods.
-
 ### Creating new notification types
 
-In Hertz, every notification is a model. If you want to create a new
-notification type, just create a new model inheriting from
-`Hertz::Notification`:
+In Hertz, every notification is a model. If you want to create a new notification type, just create a new model
+inheriting from `Hertz::Notification`:
 
 ```ruby
 class CommentNotification < Hertz::Notification
 end
 ```
-Since not all notifications might implement interfaces for all couriers, you
-have to manually specify which couriers they implement via `deliver_by`:
+Since not all notifications might implement interfaces for all couriers, you have to manually specify which couriers 
+they implement via `deliver_by`:
 
 ```ruby
 class CommentNotification < Hertz::Notification
@@ -88,8 +82,8 @@ end
 
 Notifications are not required to implement any couriers.
 
-You can set common couriers (i.e. couriers that will be used for all
-notifications) by putting the following into an initializer:
+You can set common couriers (i.e. couriers that will be used for all notifications) by putting the following into an 
+initializer:
 
 ```ruby
 Hertz.configure do |config|
@@ -99,8 +93,7 @@ end
 
 ### Attaching metadata to a notification
 
-You can attach custom metadata to a notification, but make sure it can be
-cleanly stored in an hstore:
+You can attach custom metadata to a notification, but make sure it can be cleanly stored in an hstore:
 
 ```ruby
 notification = CommentNotification.new(meta: { comment_id: comment.id })
@@ -117,8 +110,7 @@ class CommentNotification < Hertz::Notification
 end
 ```
 
-Note that you should always access your metadata with string keys, regardless of
-the type you use when attaching it.
+Note that you should always access your metadata with string keys, regardless of the type you use when attaching it.
 
 ### Notifying users
 
@@ -134,6 +126,7 @@ You can access a user's notifications with `#notifications`:
 
 ```ruby
 current_user.notifications
+current_user.notifications.read
 current_user.notifications.unread
 ```
 
@@ -146,9 +139,8 @@ notification.mark_as_unread
 
 ### Tracking delivery status
 
-Hertz provides an API couriers can use to mark the notification as delivered.
-This allows you to know which couriers have successfully delivered your
-notifications and helps prevent double deliveries:
+Hertz provides an API couriers can use to mark the notification as delivered. This allows you to know which couriers
+have successfully delivered your notifications and helps prevent double deliveries:
 
 ```ruby
 notification.delivered_with?(:email) # => false
@@ -156,24 +148,21 @@ notification.mark_delivered_with(:email) # => Hertz::Delivery
 notification.delivered_with?(:email) # => true
 ```
 
-Hertz does not enforce usage of the delivery API in any way, so some couriers
-might not take advantage of it.
+Hertz does not enforce usage of the delivery API in any way, so some couriers might not take advantage of it.
 
 ## Available couriers
 
-- [hertz-courier-twilio](https://github.com/alessandro1997/hertz-courier-twilio):
-  delivers notifications by SMS with the Twilio API.
-- [hertz-courier-email](https://github.com/alessandro1997/hertz-courier-email):
-  delivers notifications by email with ActionMailer.
-- [hertz-courier-intercom](https://github.com/alessandro1997/hertz-courier-intercom):
-  delivers notifications as Intercom conversations.
+- [hertz-courier-twilio](https://github.com/alessandro1997/hertz-courier-twilio): delivers notifications by SMS with the
+  Twilio API.
+- [hertz-courier-email](https://github.com/alessandro1997/hertz-courier-email): delivers notifications by email with 
+  ActionMailer.
+- [hertz-courier-intercom](https://github.com/alessandro1997/hertz-courier-intercom): delivers notifications as Intercom 
+  conversations.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at
-https://github.com/alessandro1997/hertz.
+Bug reports and pull requests are welcome on GitHub at https://github.com/alessandro1997/hertz.
 
 ## License
 
-The gem is available as open source under the terms of the
-[MIT License](http://opensource.org/licenses/MIT).
+The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).

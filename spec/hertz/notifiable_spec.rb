@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Hertz
   RSpec.describe Notifiable do
     let(:user) { create(:user) }
@@ -12,7 +13,7 @@ module Hertz
     end
 
     describe '#notify' do
-      before(:all) do
+      before do
         class TestNotification < Hertz::Notification; end
       end
 

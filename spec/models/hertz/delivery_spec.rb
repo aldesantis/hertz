@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Hertz
   RSpec.describe Delivery do
     subject { build_stubbed(:delivery) }
