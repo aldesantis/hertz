@@ -156,8 +156,6 @@ Hertz does not enforce usage of the delivery API in any way, so some couriers mi
   Twilio API.
 - [hertz-courier-email](https://github.com/alessandro1997/hertz-courier-email): delivers notifications by email with 
   ActionMailer.
-- [hertz-courier-intercom](https://github.com/alessandro1997/hertz-courier-intercom): delivers notifications as Intercom 
-  conversations.
 
 ## Contributing
 
