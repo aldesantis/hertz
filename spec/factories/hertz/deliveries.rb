@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :delivery, class: 'Hertz::Delivery' do
     association :notification, strategy: :build
     courier 'test'

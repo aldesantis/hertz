@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :notification, class: 'Hertz::Notification' do
     type 'Hertz::Notification'
     association :receiver, factory: :user, strategy: :build
