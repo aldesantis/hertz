@@ -19,5 +19,5 @@ before_script:
   - cp spec/dummy/config/database.travis.yml spec/dummy/config/database.yml
 
 script:
-  - cd spec/dummy &6 RAILS_ENV=test bundle exec rake db:create db:schema:load && cd ../..
+  - cd spec/dummy && RAILS_ENV=test bundle exec rake db:create db:schema:load && cd ../..
   - bundle exec rspec
