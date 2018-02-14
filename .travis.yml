@@ -23,5 +23,5 @@ script:
   - bundle exec rspec
 
 before_script:
-  - cp spec/dummy/config/database.yml.travis spec/dummy/config/database.yml
+  - cp spec/dummy/config/database.travis.yml spec/dummy/config/database.yml
   - psql -c 'create database courseselect_test;' -U postgres
