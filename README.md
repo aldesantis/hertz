@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/aldesantis/hertz.svg?branch=master)](https://travis-ci.org/aldesantis/hertz)
 [![Dependency Status](https://gemnasium.com/badges/github.com/aldesantis/hertz.svg)](https://gemnasium.com/github.com/aldesantis/hertz)
 [![Coverage Status](https://coveralls.io/repos/github/aldesantis/hertz/badge.svg?branch=master)](https://coveralls.io/github/aldesantis/hertz?branch=master)
-[![Maintainability](https://api.codeclimate.com/v1/badges/e51e8d7489eb72ab97ba/maintainability)](https://codeclimate.com/github/aldesantis/hertz/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/84d43f19a0ec0bf62ede/maintainability)](https://codeclimate.com/github/aldesantis/hertz/maintainability)
 
 Hertz is a Ruby on Rails engine for sending in-app notifications to your users.
 
