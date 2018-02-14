@@ -9,7 +9,7 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [1.0.3]
 
-*THIS IS WHEN WE ACTUALLY START WITH SEMANTIC VERSIONING.*
+**This is when we actually started with SemVer.**
 
 ### Changed
 
