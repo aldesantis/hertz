@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    hertz (1.0.2)
+    hertz (1.0.3)
       rails (>= 4.0.0, < 6.0.0)
 
 GEM
