@@ -3,3 +3,25 @@ language: ruby
 rvm:
   - 2.5.0
 before_install: gem install bundler -v 1.16.1
+
+language: ruby
+
+rvm:
+  - 2.5.0
+
+env:
+  - DB=pgsql
+
+services:
+  - postgresql
+
+script:
+  - cd spec/dummy/
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - cd ../..
+  - bundle exec rspec
+
+before_script:
+  - cp spec/dummy/config/database.yml.travis spec/dummy/config/database.yml
+  - psql -c 'create database courseselect_test;' -U postgres
