@@ -153,9 +153,9 @@ Hertz does not enforce usage of the delivery API in any way, so some couriers mi
 
 ## Available couriers
 
-- [hertz-courier-twilio](https://github.com/alessandro1997/hertz-courier-twilio): delivers notifications by SMS with the
+- [hertz-twilio](https://github.com/alessandro1997/hertz-twilio): delivers notifications by SMS with the
   Twilio API.
-- [hertz-courier-email](https://github.com/alessandro1997/hertz-courier-email): delivers notifications by email with 
+- [hertz-email](https://github.com/alessandro1997/hertz-email): delivers notifications by email with 
   ActionMailer.
 
 ## Contributing
