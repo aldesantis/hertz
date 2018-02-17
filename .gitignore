@@ -7,3 +7,4 @@
 /spec/dummy/config/database.yml
 /spec/examples.txt
 /coverage
+.ruby-version
