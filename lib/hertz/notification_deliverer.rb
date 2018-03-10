@@ -16,7 +16,7 @@ module Hertz
       end
 
       def build_courier(courier)
-        "Hertz::Courier::#{courier.to_s.camelcase}".constantize
+        "Hertz::#{courier.to_s.camelcase}".constantize
       end
     end
   end

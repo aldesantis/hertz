@@ -1,60 +1,58 @@
 # frozen_string_literal: true
 
-module Hertz
-  RSpec.describe NotificationDeliverer do
-    subject { described_class }
+RSpec.describe Hertz::NotificationDeliverer do
+  subject { described_class }
 
-    before do
-      module Courier
-        class Test
-          def self.deliver_notification(_notification); end
-        end
+  before do
+    module Hertz
+      class Test
+        def self.deliver_notification(_notification); end
       end
     end
+  end
 
-    describe '#deliver' do
-      let(:notification) do
-        Class.new(TestNotification) do
-          deliver_by :test
-        end.new
+  describe '#deliver' do
+    let(:notification) do
+      Class.new(TestNotification) do
+        deliver_by :test
+      end.new
+    end
+
+    it 'delivers the notification through the couriers' do
+      expect(Hertz::Test).to receive(:deliver_notification)
+        .once
+        .with(notification)
+
+      subject.deliver(notification)
+    end
+
+    context 'when common couriers are defined' do
+      before do
+        module Hertz
+          class Common
+            def self.deliver_notification(_notification); end
+          end
+        end
+
+        allow(Hertz).to receive(:common_couriers).and_return([:common])
+        allow(Hertz::Test).to receive(:deliver_notification)
+        allow(Hertz::Common).to receive(:deliver_notification)
       end
 
-      it 'delivers the notification through the couriers' do
-        expect(Hertz::Courier::Test).to receive(:deliver_notification)
+      it 'uses common couriers' do
+        expect(Hertz::Test).to receive(:deliver_notification)
           .once
           .with(notification)
 
         subject.deliver(notification)
       end
 
-      context 'when common couriers are defined' do
-        before do
-          module Courier
-            class Common
-              def self.deliver_notification(_notification); end
-            end
-          end
+      it 'uses model-specific couriers' do
+        expect(Hertz::Common).to receive(:deliver_notification)
+          .once
+          .with(notification)
 
-          allow(Hertz).to receive(:common_couriers).and_return([:common])
-          allow(Hertz::Courier::Test).to receive(:deliver_notification)
-          allow(Hertz::Courier::Common).to receive(:deliver_notification)
-        end
-
-        it 'uses common couriers' do
-          expect(Hertz::Courier::Test).to receive(:deliver_notification)
-            .once
-            .with(notification)
-
-          subject.deliver(notification)
-        end
-
-        it 'uses model-specific couriers' do
-          expect(Hertz::Courier::Common).to receive(:deliver_notification)
-            .once
-            .with(notification)
-
-          subject.deliver(notification)
-        end
+        subject.deliver(notification)
       end
     end
   end

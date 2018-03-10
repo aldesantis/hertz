@@ -7,6 +7,10 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changelog
+
+- Look for couriers in the root `Hertz` namespace
+
 ## [1.0.3]
 
 **This is when we actually started with SemVer.**
