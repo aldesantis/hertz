@@ -53,11 +53,9 @@ Creating a new courier in Hertz is easy:
 
 ```ruby
 module Hertz
-  module Courier
-    class Sms
-      def self.deliver_notification(notification)
-        # ...
-      end
+  class Sms
+    def self.deliver_notification(notification)
+      # ...
     end
   end
 end
