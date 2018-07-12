@@ -63,6 +63,7 @@ RSpec.describe Hertz::Notification do
 
   describe '.read' do
     before { create(:notification) }
+
     let!(:read_notification) { create(:notification, :read) }
 
     it 'returns the unread notifications' do
