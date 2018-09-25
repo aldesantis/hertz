@@ -3,6 +3,6 @@
 FactoryBot.define do
   factory :delivery, class: 'Hertz::Delivery' do
     association :notification, strategy: :build
-    courier 'test'
+    courier { 'test' }
   end
 end

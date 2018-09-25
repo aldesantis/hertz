@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :notification, class: 'Hertz::Notification' do
-    type 'Hertz::Notification'
+    type { 'Hertz::Notification' }
     association :receiver, factory: :user, strategy: :build
 
     trait :read do

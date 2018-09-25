@@ -14,8 +14,6 @@ AllCops:
    - 'spec/rails_helper.rb'
    - 'spec/support/**/*'
    - 'config/**/*'
-   - '**/Rakefile'
-   - '**/Gemfile'
    - 'spec/dummy/**/*'
 
 RSpec/DescribeClass:
