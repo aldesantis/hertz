@@ -81,11 +81,32 @@ RSpec.describe Hertz::Notification do
     end
   end
 
-  it 'delivers itself upon creation' do
-    expect(Hertz::NotificationDeliverer).to receive(:deliver)
-      .with(subject)
-      .once
+  describe '.deliver' do
+    it 'delivers itself upon creation' do
+      expect(Hertz::NotificationDeliverer).to receive(:deliver)
+        .with(subject)
+        .once
 
-    subject.save!
+      subject.save!
+    end
+
+    context 'when updating' do
+      subject { create(:notification) }
+
+      it 'delivers itself upon update' do
+        expect(Hertz::NotificationDeliverer).to receive(:deliver)
+          .with(subject)
+          .once
+
+        subject.save!
+      end
+    end
+
+    it "doesn't deliver itself upon destruction" do
+      expect(Hertz::NotificationDeliverer).not_to receive(:deliver)
+        .with(subject)
+
+      subject.destroy!
+    end
   end
 end
