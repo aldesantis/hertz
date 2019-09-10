@@ -1,5 +1,5 @@
 # This migration comes from hertz (originally 20160627084018)
-class CreateHertzNotificationDeliveries < ActiveRecord::Migration
+class CreateHertzNotificationDeliveries < ActiveRecord::Migration[5.0]
   def change
     create_table :hertz_notification_deliveries do |t|
       t.integer :notification_id, null: false

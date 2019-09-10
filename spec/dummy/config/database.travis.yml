@@ -1,4 +1,0 @@
-test:
-  adapter: postgresql
-  database: hertz_test
-  username: postgres

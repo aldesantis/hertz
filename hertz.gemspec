@@ -18,14 +18,14 @@ Gem::Specification.new do |s|
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
   s.test_files = Dir['spec/**/*']
 
-  s.add_dependency 'rails', '>= 4.0.0', '< 6.0.0'
+  s.add_dependency 'rails', '>= 4.0.0', '< 7'
 
   s.add_development_dependency 'coveralls'
   s.add_development_dependency 'database_cleaner'
   s.add_development_dependency 'factory_bot_rails'
   s.add_development_dependency 'faker'
   s.add_development_dependency 'fuubar'
-  s.add_development_dependency 'pg', '~> 0.21'
+  s.add_development_dependency 'pg'
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'rubocop'
   s.add_development_dependency 'rubocop-rspec'
