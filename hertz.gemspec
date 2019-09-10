@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.version     = Hertz::VERSION
   s.authors     = ['Alessandro Desantis']
   s.email       = ['desa.alessandro@gmail.com']
-  s.homepage    = 'https://github.com/alessandro1997/hertz'
+  s.homepage    = 'https://github.com/aldesantis/hertz'
   s.summary     = 'A Rails engine for in-app notifications.'
   s.license     = 'MIT'
 
