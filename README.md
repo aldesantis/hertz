@@ -45,8 +45,8 @@ end
 
 ### Using couriers
 
-Couriers are what Hertz uses to deliver notifications to your users. For instance, you might have a courier for 
-delivering notifications by SMS and another one for delivering them by email.
+Couriers are what Hertz uses to deliver notifications to your users. For instance, you might have a 
+courier for delivering notifications by SMS and another one for delivering them by email.
 
 Creating a new courier in Hertz is easy:
 
@@ -62,15 +62,15 @@ end
 
 ### Creating new notification types
 
-In Hertz, every notification is a model. If you want to create a new notification type, just create a new model
-inheriting from `Hertz::Notification`:
+In Hertz, every notification is a model. If you want to create a new notification type, just create 
+a new model inheriting from `Hertz::Notification`:
 
 ```ruby
 class CommentNotification < Hertz::Notification
 end
 ```
-Since not all notifications might implement interfaces for all couriers, you have to manually specify which couriers 
-they implement via `deliver_by`:
+Since not all notifications might implement interfaces for all couriers, you have to manually
+specify which couriers they implement via `deliver_by`:
 
 ```ruby
 class CommentNotification < Hertz::Notification
@@ -80,7 +80,8 @@ end
 
 Notifications are not required to implement any couriers.
 
-You can set common couriers (i.e. couriers that will be used for all notifications) by putting the following into an 
+You can set common couriers (i.e. couriers that will be used for all notifications) by putting the
+following into an 
 initializer:
 
 ```ruby
@@ -91,7 +92,8 @@ end
 
 ### Attaching metadata to a notification
 
-You can attach custom metadata to a notification, but make sure it can be cleanly stored in an hstore:
+You can attach custom metadata to a notification, but make sure it can be cleanly stored in an
+hstore:
 
 ```ruby
 notification = CommentNotification.new(meta: { comment_id: comment.id })
@@ -108,7 +110,8 @@ class CommentNotification < Hertz::Notification
 end
 ```
 
-Note that you should always access your metadata with string keys, regardless of the type you use when attaching it.
+Note that you should always access your metadata with string keys, regardless of the type you use
+when attaching it.
 
 ### Notifying users
 
@@ -137,8 +140,9 @@ notification.mark_as_unread
 
 ### Tracking delivery status
 
-Hertz provides an API couriers can use to mark the notification as delivered. This allows you to know which couriers
-have successfully delivered your notifications and helps prevent double deliveries:
+Hertz provides an API couriers can use to mark the notification as delivered. This allows you to
+know which couriers have successfully delivered your notifications and helps prevent double
+deliveries:
 
 ```ruby
 notification.delivered_with?(:email) # => false
@@ -146,7 +150,8 @@ notification.mark_delivered_with(:email) # => Hertz::Delivery
 notification.delivered_with?(:email) # => true
 ```
 
-Hertz does not enforce usage of the delivery API in any way, so some couriers might not take advantage of it.
+Hertz does not enforce usage of the delivery status API in any way, so some couriers may not take
+advantage of it.
 
 ## Available couriers
 
