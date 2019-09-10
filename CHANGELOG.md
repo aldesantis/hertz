@@ -7,6 +7,10 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Added support for Rails 6!
+
 ## [2.0.0]
 
 ### Changed
