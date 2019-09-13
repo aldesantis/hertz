@@ -4,18 +4,16 @@ RSpec.describe Hertz::NotificationDeliverer do
   subject { described_class }
 
   before do
-    module Hertz
-      class Test
-        def self.deliver_notification(_notification); end
-      end
-    end
+    stub_const('Hertz::Test', (Class.new do
+      def self.deliver_notification(_notification); end
+    end))
   end
 
   describe '#deliver' do
     let(:notification) do
-      Class.new(TestNotification) do
+      stub_const('TestNotification', (Class.new(Hertz::Notification) do
         deliver_by :test
-      end.new
+      end)).new
     end
 
     it 'delivers the notification through the couriers' do
@@ -28,11 +26,9 @@ RSpec.describe Hertz::NotificationDeliverer do
 
     context 'when common couriers are defined' do
       before do
-        module Hertz
-          class Common
-            def self.deliver_notification(_notification); end
-          end
-        end
+        stub_const('Hertz::Common', (Class.new do
+          def self.deliver_notification(_notification); end
+        end))
 
         allow(Hertz).to receive(:common_couriers).and_return([:common])
         allow(Hertz::Test).to receive(:deliver_notification)

@@ -1,17 +1,22 @@
 sudo: false
 language: ruby
-rvm:
-  - 2.4.7
-  - 2.5.6
-  - 2.6.4
 before_install: gem install bundler
 
 services:
   - postgresql
 
 before_script:
-  - cp spec/dummy/config/database.travis.yml spec/dummy/config/database.yml
+  - psql -c 'create database travis_ci_test;' -U postgres
 
-script:
-  - cd spec/dummy && RAILS_ENV=test bundle exec rake db:create db:schema:load && cd ../..
-  - bundle exec rspec
+matrix:
+  include:
+    - rvm: 2.4
+      env: RAILS_VERSION='~> 5.2.0'
+    - rvm: 2.5
+      env: RAILS_VERSION='~> 5.2.0'
+    - rvm: 2.5
+      env: RAILS_VERSION='~> 6.0.0'
+    - rvm: 2.6
+      env: RAILS_VERSION='~> 5.2.0'
+    - rvm: 2.6
+      env: RAILS_VERSION='~> 6.0.0'
