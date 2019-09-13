@@ -5,10 +5,10 @@ module Hertz
     def self.included(base)
       base.class_eval do
         has_many :notifications,
-          class_name: 'Hertz::Notification',
-          as: :receiver,
-          inverse_of: :receiver,
-          dependent: :destroy
+                 class_name: 'Hertz::Notification',
+                 as: :receiver,
+                 inverse_of: :receiver,
+                 dependent: :destroy
       end
     end
 

@@ -1,7 +1,7 @@
 require: rubocop-rspec
 
 AllCops:
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 2.4
   Include:
     - '**/Gemfile'
     - '**/Rakefile'
@@ -34,16 +34,16 @@ Metrics/LineLength:
   Max: 100
   AllowURI: true
 
-Layout/FirstParameterIndentation:
+Layout/IndentFirstArgument:
   Enabled: false
 
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 
-Layout/IndentArray:
+Layout/IndentFirstArrayElement:
   EnforcedStyle: consistent
 
-Layout/IndentHash:
+Layout/IndentFirstHashElement:
   EnforcedStyle: consistent
 
 Style/SignalException:
