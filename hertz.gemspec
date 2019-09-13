@@ -18,10 +18,10 @@ Gem::Specification.new do |s|
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
   s.test_files = Dir['spec/**/*']
 
-  s.add_dependency 'rails', '>= 4.0.0', '< 7'
+  s.add_dependency 'rails', '>= 5.2.0', '< 7'
 
-  s.add_development_dependency 'coveralls'
   s.add_development_dependency 'combustion'
+  s.add_development_dependency 'coveralls'
   s.add_development_dependency 'database_cleaner'
   s.add_development_dependency 'factory_bot_rails'
   s.add_development_dependency 'faker'

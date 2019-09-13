@@ -11,6 +11,10 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 - Added support for Rails 6!
 
+### Changed
+
+- Rails 5.2.0 is now the minimum required version
+
 ## [2.0.0]
 
 ### Changed
