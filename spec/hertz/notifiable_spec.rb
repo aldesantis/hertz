@@ -13,7 +13,7 @@ RSpec.describe Hertz::Notifiable do
 
   describe '#notify' do
     before do
-      class TestNotification < Hertz::Notification; end
+      stub_const('TestNotification', Class.new(Hertz::Notification))
     end
 
     context 'with a notification object' do
