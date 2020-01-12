@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateHertzNotificationDeliveries < ActiveRecord::Migration[5.0]
   def change
     create_table :hertz_notification_deliveries do |t|
