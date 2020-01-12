@@ -20,3 +20,7 @@ matrix:
       env: RAILS_VERSION='~> 5.2.0'
     - rvm: 2.6
       env: RAILS_VERSION='~> 6.0.0'
+    - rvm: 2.7
+      env: RAILS_VERSION='~> 5.2.0'
+    - rvm: 2.7
+      env: RAILS_VERSION='~> 6.0.0'
