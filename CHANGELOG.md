@@ -7,6 +7,8 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [2.1.0]
+
 ### Added
 
 - Added support for Rails 6!
@@ -55,7 +57,8 @@ First stable release.
 
 First public release.
 
-[Unreleased]: https://github.com/aldesantis/hertz/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/aldesantis/hertz/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/aldesantis/hertz/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/aldesantis/hertz/compare/v1.0.3...v2.0.0
 [1.0.3]: https://github.com/aldesantis/hertz/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/aldesantis/hertz/compare/v1.0.1...v1.0.2
