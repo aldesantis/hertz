@@ -1,17 +1,18 @@
+# frozen_string_literal: true
+
 require 'database_cleaner'
 
 RSpec.configure do |config|
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation,
-      except: %w[spatial_ref_sys schema_migrations]
-    )
+                               except: %w[spatial_ref_sys schema_migrations])
   end
 
   config.before(:each) { DatabaseCleaner.strategy = :truncation }
 
   config.before(:each, js: true) do
     DatabaseCleaner.strategy = :truncation,
-      { except: %w[spatial_ref_sys schema_migrations] }
+                               { except: %w[spatial_ref_sys schema_migrations] }
   end
 
   config.before(:each) { DatabaseCleaner.start }

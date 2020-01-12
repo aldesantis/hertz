@@ -14,10 +14,10 @@ module Hertz
 
     def notify(notification_or_klass, meta = {})
       notification = if notification_or_klass.is_a?(Class)
-        notification_or_klass.new(meta: meta)
-      else
-        notification_or_klass
-      end
+                       notification_or_klass.new(meta: meta)
+                     else
+                       notification_or_klass
+                     end
 
       notification.receiver = self
 
