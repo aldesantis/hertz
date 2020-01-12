@@ -14,6 +14,7 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 ### Changed
 
 - Rails 5.2.0 is now the minimum required version
+- Adopted jsonb for notifications meta
 
 ## [2.0.0]
 
